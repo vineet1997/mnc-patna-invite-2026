@@ -9,16 +9,13 @@
 		.s4 { fill: #7b1515 } 
 		.s5 { fill: #bc8d67 } 
 		.s6 { fill: #97262f } 
-		.s7 { fill: #231f20 } 
-		.t8 { font-size: 32px;fill: #2c2e35;font-weight: bold;font-family: "Gilroy" } 
+		.s7 { fill: #f5eee4 }
+		.t8 { font-size: 32px;fill: #f5eee4;font-weight: bold;font-family: "Gilroy", Arial, sans-serif }
 	</style>
 	<g id="Layer 1">
 		<g id="&lt;Group&gt;">
 			<g id="&lt;Group&gt;">
 				<g id="&lt;Group&gt;">
-					<g id="&lt;Group&gt;">
-						<path id="&lt;Path&gt;" fill-rule="evenodd" class="s0" d="m802.05 0.57v223.33h-802.03v-223.33z"/>
-					</g>
 					<g id="&lt;Group&gt;">
 						<path id="&lt;Path&gt;" fill-rule="evenodd" class="s1" d="m263.97 10.71v203.05h-121.82v-203.05z"/>
 					</g>

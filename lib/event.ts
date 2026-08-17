@@ -21,10 +21,10 @@ export const event = {
     { name: "Sanchit Agarwal", phone: "+91 70045 67907", href: "tel:+917004567907" },
   ],
   brands: [
-    { name: "Florida", logo: "/brands/florida.png", width: 660, height: 220, note: "Dress Your Home" },
-    { name: "Boutique Living", logo: "/brands/boutique-living.jpg", width: 520, height: 520, note: "Refined home fashion" },
-    { name: "Layers", logo: "/brands/layers.png", width: 800, height: 236, note: "Dress Up Your Home" },
-    { name: "Welspun", logo: "/brands/welspun.png", width: 127, height: 74, note: "Everyday innovation" },
+    { name: "Florida", logo: "/brands/florida-ivory.png", width: 655, height: 218, note: "Dress Your Home" },
+    { name: "Boutique Living", logo: "/brands/boutique-living-ivory.png", width: 480, height: 328, note: "Refined home fashion" },
+    { name: "Layers", logo: "/brands/layers-ivory.png", width: 808, height: 239, note: "Dress Up Your Home" },
+    { name: "Welspun", logo: "/brands/welspun-ivory.png", width: 118, height: 37, note: "Everyday innovation" },
     { name: "SPACES", logo: "/brands/spaces.svg", width: 938, height: 303, note: "Bed · Bath · Rugs" },
   ],
 } as const;

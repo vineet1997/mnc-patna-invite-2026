@@ -32,10 +32,16 @@ test("server-renders a complete static invitation and social metadata", async ()
 
   const html = await response.text();
   assert.match(html, /<title>Home Fashionista Rising 2026 · Patna<\/title>/i);
-  assert.match(html, /A new season rises\./);
+  assert.match(html, /An exclusive preview of the new season\./);
   assert.match(html, /08 September 2026|08 Sep/);
   assert.match(html, /Crystal Hall \(9 to 9\)/);
-  assert.match(html, /Review &amp; send on WhatsApp/);
+  assert.match(html, /Send RSVP on WhatsApp/);
+  assert.match(html, /Five names\./);
+  assert.match(html, /A private invitation from/);
+  assert.doesNotMatch(html, /Replay cloth/);
+  assert.doesNotMatch(html, /Skip reveal/);
+  assert.doesNotMatch(html, /Private invitation · Patna/);
+  assert.doesNotMatch(html, /01 \/ Discover|The finest seasons begin/);
   assert.match(html, /https:\/\/invite\.example\/og\.png/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
 });
@@ -55,10 +61,11 @@ test("serves a valid downloadable calendar event", async () => {
   assert.match(calendar, /LOCATION:Crystal Hall \(9 to 9\)/);
 });
 
-test("keeps motion optional and event facts centralized", async () => {
-  const [css, eventData, packageJson] = await Promise.all([
+test("keeps motion optional, physical and event facts centralized", async () => {
+  const [css, eventData, clothSimulation, packageJson] = await Promise.all([
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../lib/event.ts", import.meta.url), "utf8"),
+    readFile(new URL("../components/clothSimulation.ts", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
@@ -66,5 +73,10 @@ test("keeps motion optional and event facts centralized", async () => {
   assert.match(css, /animation-duration:\s*\.01ms/);
   assert.match(eventData, /rsvpPhone:\s*"919431022128"/);
   assert.match(eventData, /mapsUrl:/);
+  assert.match(eventData, /boutique-living-ivory\.png/);
+  assert.match(clothSimulation, /fixedStep:\s*1 \/ 60/);
+  assert.match(clothSimulation, /constraintPasses:/);
+  assert.match(clothSimulation, /settleSpeed:/);
+  assert.doesNotMatch(css, /mix-blend-mode/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });

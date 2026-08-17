@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
+import { preload } from "react-dom";
+import "@fontsource-variable/bodoni-moda";
+import "@fontsource-variable/bodoni-moda/wght-italic.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource-variable/manrope";
 import "./globals.css";
 
 const title = "Home Fashionista Rising 2026 · Patna";
@@ -26,13 +32,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const viewport: Viewport = { themeColor: "#f3ecdf", colorScheme: "light" };
+export const viewport: Viewport = { themeColor: "#0a0609", colorScheme: "dark" };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  preload("/textile-hero-v2.png", { as: "image", fetchPriority: "high" });
   return (
     <html lang="en">
       <body>{children}</body>
