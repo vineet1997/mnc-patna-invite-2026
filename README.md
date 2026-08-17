@@ -21,7 +21,7 @@ A standalone, mobile-first digital invitation for Mukesh & Company’s annual mu
 - `public/textile-hero-v2.png` is the animated textile source. `public/og.jpg` is the 1200 × 630, WhatsApp-sized social card.
 - `output/print/` contains the 300 DPI physical invitation card and its lightweight review preview. Its QR opens the deployed invitation.
 - `scripts/generate-invitation-assets.mjs` reproducibly typesets both cards with Cormorant Garamond and verifies the same event URL used by the QR.
-- `references/` preserves the supplied poster, screenshot and Ranchi project learnings.
+- `references/` preserves the supplied poster, screenshot, Ranchi project learnings and the reusable [working principles](references/2026-08-17-working-principles.md).
 
 ## Local use
 

@@ -57,7 +57,7 @@ const ogTypography = `
   <line x1="72" y1="137" x2="130" y2="137" stroke="#CDAA76" stroke-width="2"/>
   <text x="69" y="270" fill="#F5EEE4" font-family="Cormorant, Georgia" font-size="78" font-weight="500" letter-spacing="-1.2">Home Fashionista</text>
   <text x="60" y="398" fill="#F5EEE4" font-family="Cormorant, Georgia" font-size="136" font-style="italic" font-weight="500" letter-spacing="-5">Rising</text>
-  <text x="420" y="352" fill="#CDAA76" font-family="Manrope, Arial" font-size="26" font-weight="650" letter-spacing="5">2026</text>
+  <text x="448" y="365" fill="#CDAA76" font-family="Cormorant, Georgia" font-size="36" font-weight="600" letter-spacing="3">2026</text>
   <text x="72" y="465" fill="#D8CEC5" font-family="Manrope, Arial" font-size="14" font-weight="430" letter-spacing=".5">An exclusive preview of the new season.</text>
   <line x1="72" y1="516" x2="542" y2="516" stroke="#F5EEE4" stroke-opacity=".22"/>
   <text x="72" y="555" fill="#CDAA76" font-family="Manrope, Arial" font-size="12" font-weight="700" letter-spacing="3">TUESDAY · 08 SEPTEMBER</text>
