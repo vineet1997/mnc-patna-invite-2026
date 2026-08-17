@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { preload } from "react-dom";
+import { Analytics } from "@vercel/analytics/next";
 import "@fontsource-variable/bodoni-moda";
 import "@fontsource-variable/bodoni-moda/wght-italic.css";
 import "@fontsource/cormorant-garamond/500.css";
@@ -42,7 +43,10 @@ export default function RootLayout({
   preload("/textile-hero-v2.png", { as: "image", fetchPriority: "high" });
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
