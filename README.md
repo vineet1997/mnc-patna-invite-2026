@@ -18,7 +18,9 @@ A standalone, mobile-first digital invitation for Mukesh & Company’s annual mu
 - `components/RsvpForm.tsx` prepares the WhatsApp RSVP locally without storing guest information.
 - `app/calendar/route.ts` produces the downloadable calendar event.
 - `public/brands/` contains verified brand assets plus optically cropped transparent ivory treatments for the dark logo field; SPACES retains its authentic multicolour mark.
-- `public/textile-hero-v2.png` and `public/og.png` are the generated luxury textile hero and matching social-sharing card.
+- `public/textile-hero-v2.png` is the animated textile source. `public/og.jpg` is the 1200 × 630, WhatsApp-sized social card.
+- `output/print/` contains the 300 DPI physical invitation card and its lightweight review preview. Its QR opens the deployed invitation.
+- `scripts/generate-invitation-assets.mjs` reproducibly typesets both cards with Cormorant Garamond and verifies the same event URL used by the QR.
 - `references/` preserves the supplied poster, screenshot and Ranchi project learnings.
 
 ## Local use
@@ -26,14 +28,16 @@ A standalone, mobile-first digital invitation for Mukesh & Company’s annual mu
 ```bash
 npm install
 npm run dev
+npm run generate:assets
 npm run lint
 npm test
+npm run build:vercel
 ```
 
-The production build uses vinext and the Sites-compatible Vite configuration supplied with the project.
+The default production build uses vinext and the Sites-compatible Vite configuration supplied with the project. Vercel uses the native Next.js build selected in `vercel.json`.
 
 ## Provisional details
 
 The RSVP recipient is currently Mukesh Agarwal. The map action uses the supplied postal address, and the calendar reserves nine hours from 11:00 AM to cover lunch and dinner. These remain easy to update in `lib/event.ts` when the final RSVP number, map pin or closing time is confirmed.
 
-Deployment is intentionally withheld until the design is approved.
+The production invitation is deployed through the connected Vercel project.

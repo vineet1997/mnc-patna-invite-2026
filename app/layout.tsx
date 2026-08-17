@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const socialImage = `${protocol}://${host}/og.png`;
+  const socialImage = `${protocol}://${host}/og.jpg`;
 
   return {
     title,
@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_IN",
       siteName: "Home Fashionista Rising 2026",
-      images: [{ url: socialImage, width: 1734, height: 909, alt: "Home Fashionista Rising 2026 invitation for Patna" }],
+      images: [{ url: socialImage, width: 1200, height: 630, alt: "Home Fashionista Rising 2026 invitation for Patna" }],
     },
     twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   };
