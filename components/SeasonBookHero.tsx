@@ -38,8 +38,6 @@ export function SeasonBookHero() {
           <a className="luxe-button luxe-button-quiet" href={event.mapsUrl} target="_blank" rel="noreferrer">Directions <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
-
-      <p className="scroll-note">Scroll to enter <span aria-hidden="true">↓</span></p>
     </section>
   );
 }

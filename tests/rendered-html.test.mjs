@@ -41,6 +41,7 @@ test("server-renders a complete static invitation and social metadata", async ()
   assert.match(html, /A private invitation from/);
   assert.doesNotMatch(html, /Replay cloth/);
   assert.doesNotMatch(html, /Skip reveal/);
+  assert.doesNotMatch(html, /Scroll to enter/);
   assert.doesNotMatch(html, /Private invitation · Patna/);
   assert.doesNotMatch(html, /01 \/ Discover|The finest seasons begin/);
   assert.match(html, /https:\/\/invite\.example\/og\.jpg/);
@@ -71,7 +72,7 @@ test("ships a WhatsApp-sized social card and a scannable print QR", async () => 
   assert.ok(socialImage.size < 300 * 1024, `social image is ${Math.round(socialImage.size / 1024)} KB`);
 
   const cardPath = fileURLToPath(new URL("../output/print/home-fashionista-rising-2026-patna-card.png", import.meta.url));
-  const { data, info } = await sharp(cardPath).extract({ left: 1420, top: 762, width: 250, height: 250 }).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const { data, info } = await sharp(cardPath).extract({ left: 1450, top: 850, width: 230, height: 230 }).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const decoded = jsQR(new Uint8ClampedArray(data), info.width, info.height);
   assert.equal(decoded?.data, "https://home-fashionista-rising-2026.vercel.app/");
 });

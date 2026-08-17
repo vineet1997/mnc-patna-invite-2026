@@ -76,7 +76,6 @@ h1, h2, h3, p { text-wrap: pretty; }
 .invited-line,
 .essential-fact span,
 .essential-fact small,
-.scroll-note,
 .section-rule,
 .collection-heading > p,
 .event-city,
@@ -149,12 +148,6 @@ h1, h2, h3, p { text-wrap: pretty; }
 .luxe-button-primary { color: #150b10; background: var(--gold); }
 .luxe-button-quiet { border: 1px solid rgba(245, 238, 228, .32); background: rgba(8, 4, 8, .36); }
 .luxe-button-outline { border: 1px solid rgba(245, 238, 228, .35); background: transparent; }
-.scroll-note { display: none; transition: opacity .5s ease; }
-.fabric-loading .scroll-note,
-.fabric-moving .scroll-note,
-.fabric-title .scroll-note,
-.fabric-details .scroll-note { opacity: 0; }
-
 @keyframes host-cue {
   from { opacity: 0; transform: translateY(9px); }
   to { opacity: 1; transform: translateY(0); }
@@ -277,8 +270,6 @@ select:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   .essential-fact strong { font-size: 19px; }
   .luxury-actions { grid-column: auto; grid-template-columns: 1.25fr .75fr; align-items: center; padding-left: 24px; border-left: 1px solid var(--line); }
   .luxe-button { min-height: 54px; }
-  .scroll-note { display: flex; position: absolute; z-index: 4; right: max(4vw, 46px); top: 50%; align-items: center; gap: 12px; margin: 0; color: var(--muted); transform: rotate(90deg) translateX(50%); transform-origin: 100% 0; }
-
   .collection-section,
   .event-section,
   .rsvp-section { padding: 110px max(5vw, 50px); }

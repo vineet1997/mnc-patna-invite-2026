@@ -40,9 +40,10 @@ export function FabricScene({ onStateChange }: FabricSceneProps) {
           return;
         }
 
+        const mobile = canvas.getBoundingClientRect().width < 720;
         const sourceImage = texture.image as HTMLImageElement;
         const maskCanvas = document.createElement("canvas");
-        maskCanvas.width = 512;
+        maskCanvas.width = mobile ? 768 : 640;
         maskCanvas.height = Math.round((sourceImage.naturalHeight / sourceImage.naturalWidth) * maskCanvas.width);
         const maskContext = maskCanvas.getContext("2d", { willReadFrequently: true });
         let alphaTexture: InstanceType<typeof THREE.CanvasTexture> | undefined;
@@ -72,18 +73,17 @@ export function FabricScene({ onStateChange }: FabricSceneProps) {
         }
 
         const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 2 : 1.5));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 0.88;
+        renderer.toneMappingExposure = 1;
 
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 40);
         camera.position.set(0, 0, 8.4);
 
-        const mobile = canvas.getBoundingClientRect().width < 720;
-        const columns = mobile ? 24 : 32;
-        const rows = mobile ? 30 : 40;
+        const columns = mobile ? 32 : 36;
+        const rows = mobile ? 42 : 46;
         const geometry = new THREE.PlaneGeometry(8.2, 10.4, columns - 1, rows - 1);
         const basePositions = geometry.attributes.position.array.slice();
         const simulation = createClothSimulation(basePositions, columns, rows);
@@ -91,19 +91,33 @@ export function FabricScene({ onStateChange }: FabricSceneProps) {
         geometry.attributes.position.needsUpdate = true;
 
         texture.colorSpace = THREE.SRGBColorSpace;
-        texture.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
-        const material = new THREE.MeshStandardMaterial({ map: texture, alphaMap: alphaTexture, alphaTest: 0.14, transparent: Boolean(alphaTexture), roughness: 0.55, metalness: 0, side: THREE.DoubleSide });
+        texture.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), mobile ? 16 : 12);
+        const material = new THREE.MeshStandardMaterial({
+          map: texture,
+          emissive: 0xffffff,
+          emissiveMap: texture,
+          emissiveIntensity: 0.16,
+          alphaMap: alphaTexture,
+          alphaTest: 0.12,
+          transparent: Boolean(alphaTexture),
+          roughness: 0.48,
+          metalness: 0,
+          side: THREE.DoubleSide,
+        });
         const cloth = new THREE.Mesh(geometry, material);
         cloth.rotation.z = -0.055;
         scene.add(cloth);
 
-        scene.add(new THREE.AmbientLight(0x17171b, 1.35));
-        const neutralLight = new THREE.DirectionalLight(0xf1f3f0, 1.75);
+        scene.add(new THREE.AmbientLight(0x211319, 1.42));
+        const neutralLight = new THREE.DirectionalLight(0xf5f1ed, 1.9);
         neutralLight.position.set(-4, 3, 6);
         scene.add(neutralLight);
-        const coolLight = new THREE.DirectionalLight(0x4e8b93, 0.48);
+        const coolLight = new THREE.DirectionalLight(0x4e8b93, 0.24);
         coolLight.position.set(4, -1, 4);
         scene.add(coolLight);
+        const burgundyLight = new THREE.DirectionalLight(0x9a3f52, 0.42);
+        burgundyLight.position.set(5, -3, 4);
+        scene.add(burgundyLight);
 
         let frame = 0;
         let lastTime = performance.now();
@@ -118,8 +132,14 @@ export function FabricScene({ onStateChange }: FabricSceneProps) {
           camera.aspect = rect.width / Math.max(rect.height, 1);
           camera.updateProjectionMatrix();
           const compact = rect.width < 720;
-          cloth.scale.setScalar(compact ? 1.08 : 1.18);
-          cloth.position.x = compact ? 1.15 : 2.2;
+          if (compact) {
+            // Reveal more of the textile's teal-to-burgundy transition on a narrow screen.
+            cloth.scale.set(.46, .86, 1);
+            cloth.position.x = -.25;
+          } else {
+            cloth.scale.set(.98, 1.14, 1);
+            cloth.position.x = .55;
+          }
         };
 
         const render = () => {

@@ -75,7 +75,7 @@ async function renderOg() {
   return output.length;
 }
 
-const qr = qrMarkup(invitationUrl, 1420, 762, 250);
+const qr = qrMarkup(invitationUrl, 1450, 850, 230);
 const printArtwork = `
 <svg width="1819" height="1240" viewBox="0 0 1819 1240" xmlns="http://www.w3.org/2000/svg">
   <style>${fontFaces}</style>
@@ -87,7 +87,7 @@ const printArtwork = `
   <line x1="128" y1="224" x2="208" y2="224" stroke="#CDAA76" stroke-width="3"/>
   <text x="122" y="445" fill="#F5EEE4" font-family="Cormorant, Georgia" font-size="116" font-weight="500" letter-spacing="-2">Home Fashionista</text>
   <text x="108" y="625" fill="#F5EEE4" font-family="Cormorant, Georgia" font-size="194" font-style="italic" font-weight="500" letter-spacing="-7">Rising</text>
-  <text x="620" y="555" fill="#CDAA76" font-family="Manrope, Arial" font-size="38" font-weight="650" letter-spacing="8">2026</text>
+  <text x="680" y="574" fill="#CDAA76" font-family="Cormorant, Georgia" font-size="56" font-weight="600" letter-spacing="3">2026</text>
   <text x="128" y="704" fill="#D8CEC5" font-family="Manrope, Arial" font-size="20" font-weight="430">An exclusive preview of the new season.</text>
   <path d="M128 770 C420 782, 720 745, 1045 766" fill="none" stroke="#CDAA76" stroke-opacity=".8" stroke-width="2"/>
   <text x="128" y="902" fill="#CDAA76" font-family="Manrope, Arial" font-size="15" font-weight="750" letter-spacing="4">TUESDAY</text>
@@ -98,12 +98,7 @@ const printArtwork = `
   <text x="563" y="902" fill="#CDAA76" font-family="Manrope, Arial" font-size="15" font-weight="750" letter-spacing="4">PATNA</text>
   <text x="560" y="954" fill="#F5EEE4" font-family="Cormorant, Georgia" font-size="36" font-weight="600">Crystal Hall (9 to 9)</text>
   <text x="563" y="990" fill="#B9ADA6" font-family="Manrope, Arial" font-size="14" font-weight="650" letter-spacing="1.4">NUTAN TOWER · DAKBANGLOW ROAD</text>
-  <rect x="1376" y="680" width="338" height="460" rx="22" fill="#F8F2E8" fill-opacity=".97"/>
-  <rect x="1390" y="694" width="310" height="432" rx="14" fill="none" stroke="#CDAA76" stroke-width="2"/>
-  <text x="1545" y="738" text-anchor="middle" fill="#5C463A" font-family="Manrope, Arial" font-size="13" font-weight="750" letter-spacing="1.4">OPEN THE DIGITAL INVITATION</text>
   ${qr}
-  <line x1="1430" y1="1040" x2="1660" y2="1040" stroke="#CDAA76" stroke-width="2" stroke-dasharray="10 8"/>
-  <text x="1545" y="1076" text-anchor="middle" fill="#6F5541" font-family="Manrope, Arial" font-size="12" font-weight="650" letter-spacing="1">DETAILS · DIRECTIONS · CONFIRMATION</text>
 </svg>`;
 
 async function renderPrintCard() {
