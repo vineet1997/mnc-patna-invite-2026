@@ -32,7 +32,7 @@ export function SeasonBookHero() {
 
       <div className="hero-essential">
         <div className="essential-fact"><span>Tuesday</span><strong>08 September</strong><small>11:00 AM onwards</small></div>
-        <div className="essential-fact"><span>Patna</span><strong>{event.venue}</strong><small>Nutan Tower · Dakbanglow Road</small></div>
+        <div className="essential-fact"><span>Patna</span><strong>{event.venue}</strong><small>Nutan Tower · Bandar Bagicha</small></div>
         <nav className="luxury-actions" aria-label="Invitation actions">
           <a className="luxe-button luxe-button-primary" href="#rsvp">Confirm on WhatsApp</a>
           <a className="luxe-button luxe-button-quiet" href={event.mapsUrl} target="_blank" rel="noreferrer">Directions <span aria-hidden="true">↗</span></a>

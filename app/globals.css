@@ -183,8 +183,9 @@ h1, h2, h3, p { text-wrap: pretty; }
 .logo-signature { display: grid; min-height: 112px; place-items: center; padding: 18px 10px; }
 .logo-signature-5 { grid-column: 1 / -1; }
 .logo-signature img { width: auto; object-fit: contain; opacity: .9; }
-.logo-signature-1 img { width: min(100%, 190px); max-height: 64px; }
-.logo-signature-2 img { width: min(62%, 82px); max-height: 82px; }
+.logo-signature-featured img { opacity: 1; }
+.logo-signature-1 img { width: min(100%, 142px); max-height: 100px; }
+.logo-signature-2 img { width: min(100%, 190px); max-height: 64px; }
 .logo-signature-3 img { width: min(100%, 190px); max-height: 58px; }
 .logo-signature-4 img { width: min(78%, 146px); max-height: 54px; }
 .logo-signature-5 img { width: min(70%, 182px); max-height: 70px; }

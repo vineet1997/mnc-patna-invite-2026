@@ -97,7 +97,7 @@ const printArtwork = `
   <line x1="510" y1="895" x2="510" y2="1008" stroke="#F5EEE4" stroke-opacity=".22"/>
   <text x="563" y="902" fill="#CDAA76" font-family="Manrope, Arial" font-size="15" font-weight="750" letter-spacing="4">PATNA</text>
   <text x="560" y="954" fill="#F5EEE4" font-family="Cormorant, Georgia" font-size="36" font-weight="600">Crystal Hall (9 to 9)</text>
-  <text x="563" y="990" fill="#B9ADA6" font-family="Manrope, Arial" font-size="14" font-weight="650" letter-spacing="1.4">NUTAN TOWER · DAKBANGLOW ROAD</text>
+  <text x="563" y="990" fill="#B9ADA6" font-family="Manrope, Arial" font-size="14" font-weight="650" letter-spacing="1.4">NUTAN TOWER · BANDAR BAGICHA</text>
   ${qr}
 </svg>`;
 

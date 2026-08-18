@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="logo-gallery" aria-label="Participating brands">
           {event.brands.map((brand, index) => (
-            <div className={`logo-signature logo-signature-${index + 1}`} key={brand.name}>
+            <div className={`logo-signature logo-signature-${index + 1}${brand.featured ? " logo-signature-featured" : ""}`} key={brand.name}>
               <img src={brand.logo} width={brand.width} height={brand.height} alt={`${brand.name} logo`} loading="lazy" decoding="async" />
             </div>
           ))}

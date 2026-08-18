@@ -36,6 +36,7 @@ test("server-renders a complete static invitation and social metadata", async ()
   assert.match(html, /An exclusive preview of the new season\./);
   assert.match(html, /08 September 2026|08 Sep/);
   assert.match(html, /Crystal Hall \(9 to 9\)/);
+  assert.match(html, /Bandar Bagicha/);
   assert.match(html, /Send RSVP on WhatsApp/);
   assert.match(html, /Five names\./);
   assert.match(html, /A private invitation from/);
@@ -91,6 +92,8 @@ test("keeps motion optional, physical and event facts centralized", async () => 
   assert.match(css, /animation-duration:\s*\.01ms/);
   assert.match(eventData, /rsvpPhone:\s*"919431022128"/);
   assert.match(eventData, /mapsUrl:/);
+  assert.match(eventData, /Bandar Bagicha/);
+  assert.doesNotMatch(eventData, /Dakbanglow/i);
   assert.match(eventData, /boutique-living-ivory\.png/);
   assert.match(clothSimulation, /fixedStep:\s*1 \/ 60/);
   assert.match(clothSimulation, /constraintPasses:/);
